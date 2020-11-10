@@ -4,11 +4,15 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MobileGamePort.Models;
 
 namespace MobileGamePort.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Recharge> Recharges { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

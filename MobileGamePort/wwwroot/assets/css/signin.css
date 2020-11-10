@@ -1,0 +1,74 @@
+html,
+body {
+    height: 100%;
+    background-image: url("/assets/img/bg_login.jpg");
+    background-position: center;
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 430px;
+    margin: auto;
+}
+.form-signin .checkbox {
+    font-weight: 400;
+}
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+
+.form-signup {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-signup .checkbox {
+    font-weight: 400;
+}
+.form-signup .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signup .form-control:focus {
+    z-index: 2;
+}
+
+.avatar {
+    margin-top: -75px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #70c5c0;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.avatar img {
+    width: 100%;
+}

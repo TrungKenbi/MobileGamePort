@@ -13,6 +13,7 @@ using MobileGamePort.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MobileGamePort.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MobileGamePort
 {
@@ -39,9 +40,18 @@ namespace MobileGamePort
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<User>()
+            services.AddDefaultIdentity<User>(options => { options.User.RequireUniqueEmail = false; })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "2SGame";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -1,5 +1,6 @@
 # Cổng Game Mobile Online
 Đồ án môn học Lập Trình Web, xây dựng trang web tải và chơi game, nạp thẻ và sử dụng mã quà tặng.
+![2S Game Port](https://i.imgur.com/8zt0ejR.png)
 ### :construction_worker: Thành viên
   - Dương Lê Phước Trung
   - Nguyễn Ngọc Minh

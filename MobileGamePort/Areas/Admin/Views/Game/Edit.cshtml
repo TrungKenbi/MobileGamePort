@@ -1,0 +1,47 @@
+﻿@model MobileGamePort.Models.Game
+
+@{
+    ViewData["Title"] = "Sửa Trò Chơi";
+}
+
+<div class="app-main__inner">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewData["Title"]</h5>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="position-relative form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" id="editor" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input asp-for="Image" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="position-relative form-group">
+                        <input type="submit" value="Sửa" class="mt-1 btn btn-primary" />
+                    </div>
+                </form>
+
+                <div>
+                    <a asp-action="Index">Danh sách trò chơi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
+}

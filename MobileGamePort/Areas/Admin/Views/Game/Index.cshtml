@@ -1,0 +1,84 @@
+﻿@model X.PagedList.IPagedList<MobileGamePort.Models.Game>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Common;
+
+@{
+    ViewData["Title"] = "Danh Sách Trò Chơi";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-joy icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Trò Chơi
+                    <div class="page-title-subheading">
+                        Thêm mới, chỉnh sửa, xóa các trò chơi có trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewData["Title"]</h5>
+                    <table class="mb-0 table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên trò chơi</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@(i++)</th>
+                                    <td>
+                                        <img src="@Html.DisplayFor(modelItem => item.Image)" height="50px" />
+                                    </td>
+                                    <td>
+                                        <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                    </td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id">
+                                            <button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id">
+                                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id">
+                                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @if (@Model.PageCount > 1)
+                    {
+                        <br />
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+                            {
+                               LiElementClasses = new string[] { "page-item" },
+                               PageClasses = new string[] { "page-link" }
+                            }
+                        )
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

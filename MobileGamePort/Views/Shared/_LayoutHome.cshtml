@@ -15,7 +15,7 @@
         <nav class="navbar">
             <a href="/" class="logo"><img src="~/images/2sgame.png" alt="2SGame"></a>
             <ul class="menu flex">
-                <li><a href="https://sohagame.vn/" title="">Trang chủ</a></li>
+                <li><a href="/" title="">Trang chủ</a></li>
                 <li>
                     <a href="https://sohagame.vn/game-mobile" title="">Games</a>
                     <div class="game_top">
@@ -151,8 +151,8 @@
                         <li><a href="/Account"><i class="icon icon-protection"></i>Tài khoản</a></li>
                         <li>
                             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
-                                <a href="javascript:{}" onclick="document.getElementById('logoutForm').submit();"><i class="icon icon-logout"></i>Đăng xuất</a>
                             </form>
+                            <a href="javascript:{}" onclick="document.getElementById('logoutForm').submit();"><i class="icon icon-logout"></i>Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
@@ -188,7 +188,7 @@
     </footer>
 
     <script type="text/javascript">var shg_app = JSON.parse('{"app_key":"41c42365a47d43a5997335fe82ff6ca3","game_code":"464"}'); var shg_domain = 'https://sohagame.vn'; var shg_template = 'pc'; var shg_sitename = 'shgv3';</script>
-    <script src="https://sohagame.mediacdn.vn/project/o/shgv3/both/js/PC-production-118dd4deccb6d9829f642f2aa06fbda0.web.js?v=11.40.23-10.11.2020" type="text/javascript"></script>
+    <script src="/js/main.js" type="text/javascript"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

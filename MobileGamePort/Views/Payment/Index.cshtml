@@ -1,0 +1,118 @@
+﻿
+@{
+    // ViewData["ShowProfile"] = "False";
+    ViewData["Title"] = "Nạp Tiền Nè Mấy Bạn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col mb-2">
+    <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="/Account">Trang cá nhân</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Nạp Tiền</li>
+          </ol>
+        </nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">
+                    <i class="fa fa-list" aria-hidden="true"></i> Thẻ Cào
+                </a>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">
+                    <i class="fa fa-list" aria-hidden="true"></i> MoMo
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">
+                    <i class="fa fa-list" aria-hidden="true"></i> Ngân Hàng
+                </a>
+            </li>
+            
+        </ul>
+        @* Nạp tiền bằng thẻ cào *@
+        <div class="tab-content">
+            <div class="tab-pane active border border-top-0 p-3" role="tabpanel" id="tab-1">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="username">Tài khoản</label>
+                        <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Mệnh giá</label>
+                        <select class="form-control" id="amount">
+                            <option>10.000đ</option>
+                            <option>20.000đ</option>
+                            <option>50.000đ</option>
+                            <option>100.000đ</option>
+                            <option>200.000đ</option>
+                            <option>500.000đ</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Mã thẻ</label>
+                        <input type="text" class="form-control" placeholder="Mã thẻ cào">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Số Seri</label>
+                        <input type="text" class="form-control" placeholder="Số seri thẻ cào">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Nạp Tiền</button>
+                </form>
+            </div>
+
+            @* Nạp tiền qua MoMo *@
+            <div class="tab-pane border border-top-0 p-3" role="tabpanel" id="tab-2">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="username">Tài khoản</label>
+                        <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Số tiền</label>
+                        <input type="number" class="form-control" placeholder="Số tiền">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Nạp Tiền</button>
+                </form>
+            </div>
+
+        
+        @* Nạp tiền qua ngân hàng *@
+
+            <div class="tab-pane border border-top-0 p-3" role="tabpanel" id="tab-3">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="username">Tài khoản</label>
+                        <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bank">Ngân hàng</label>
+                        <select class="form-control" id="bank">
+                            <option>Vietcombank</option>
+                            <option>BIDV</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Số tiền</label>
+                        <input type="number" class="form-control" placeholder="Số tiền">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Nạp Tiền</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

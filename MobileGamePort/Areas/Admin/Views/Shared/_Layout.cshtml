@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Trang Quản Trị - Cổng Game Mobile Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="Trang Quản Trị - Cổng Game Mobile Online">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="/assets/css/admin_main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <partial name="./Layouts/_Header" />
+        <div class="app-main">
+            <partial name="./Layouts/_Sidebar" />
+            <div class="app-main__outer">
+                @RenderBody()
+                <partial name="./Layouts/_Footer" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/assets/scripts/admin_main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

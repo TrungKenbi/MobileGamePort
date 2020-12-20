@@ -8,6 +8,7 @@ using MoMo;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MobileGamePort.Controllers
@@ -156,5 +157,128 @@ namespace MobileGamePort.Controllers
                 .OrderByDescending(x => x.Id)
                 .ToListAsync());
         }
+
+        [Authorize]
+        public async Task<IActionResult> EnterCode()
+        {
+            ViewData["user"] = this.GetCurrentUser();
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EnterCode(string Code)
+        {
+            var giftCode = _context.GiftCode.Where(g => g.Code.Equals(Code)).FirstOrDefault();
+
+            if (giftCode == null)
+            {
+                ViewData["user"] = this.GetCurrentUser();
+                ViewBag.Message = "Mã quà tặng không chính xác !";
+                ViewBag.MessageType = "warning";
+                return View();
+            }
+
+            User user = this.GetCurrentUser();
+
+            var giftCheck = _context.GiftCodeUse
+                    .Where(g => g.GiftCodeId == giftCode.Id)
+                    .Where(g => g.UserId.Equals(user.Id))
+                    .FirstOrDefault();
+
+            if (giftCheck != null)
+            {
+                ViewData["user"] = user;
+                ViewBag.Message = "Bạn đã sử dụng mã quà tặng này rồi mà !";
+                ViewBag.MessageType = "warning";
+                return View();
+            }
+
+            ViewBag.Message = "Chúc mừng, bạn vừa nhận được " + giftCode.Money + " lượng từ mã quà tặng !";
+            ViewBag.MessageType = "success";
+
+            
+            user.Gold += giftCode.Money;
+
+            _context.Update(user);
+            _context.SaveChanges();
+
+
+            GiftCodeUse giftCodeUse = new GiftCodeUse();
+            giftCodeUse.GiftCodeId = giftCode.Id;
+            giftCodeUse.UserId = user.Id;
+            _context.Add(giftCodeUse);
+            _context.SaveChanges();
+
+            ViewData["user"] = user;
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Exchange()
+        {
+            ViewData["user"] = this.GetCurrentUser();
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Exchange(string Game, string Amount)
+        {
+            User user = this.GetCurrentUser();
+            string key = "MobileGamePort_TrungKenbi";
+            string endpoint = String.Empty;
+            int amountInt = Int32.Parse(Amount);
+            int gameUserId = 4;
+            int gameMoney = amountInt * 100;
+
+            if (amountInt > user.Gold)
+            {
+                ViewData["user"] = user;
+                ViewBag.Message = "Bạn không đủ Lượng để chuyển đổi, vui lòng nạp thêm !";
+                ViewBag.MessageType = "warning";
+                return View();
+            }
+
+            switch(Game)
+            {
+                case "MOBIARMY":
+                    endpoint = "http://172.96.185.179/~armylauc/api_games/payment.php?key=" + key + "&amount=" + gameMoney + "&user_id=" + gameUserId;
+                    break;
+
+                case "LONGTINH":
+                    endpoint = "http://172.96.185.179/~armylauc/api_games/payment.php";
+                    break;
+            }
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync(endpoint))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    if (apiResponse.Equals("OKK"))
+                    {
+                        ViewData["user"] = user;
+                        ViewBag.Message = "Chuyển đổi tiền thành công, vui lòng vào trò chơi để kiểm tra !";
+                        ViewBag.MessageType = "success";
+
+                        user.Gold -= amountInt;
+                        _context.Update(user);
+                        _context.SaveChanges();
+
+                        return View();
+                    }
+                }
+            }
+
+            ViewData["user"] = user;
+            ViewBag.Message = "Lỗi hệ thống: Không thể kết nối đến hệ thống tiền tệ trò chơi này !";
+            ViewBag.MessageType = "warning";
+            return View();
+        }
+
+
     }
 }

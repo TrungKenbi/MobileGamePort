@@ -1,0 +1,58 @@
+﻿@model MobileGamePort.Models.GiftCode
+
+@{
+    ViewData["Title"] = "Chi Tiết Mã Quà Tặng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-joy icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Mã Quà Tặng
+                    <div class="page-title-subheading">
+                        Thêm mới, chỉnh sửa, xóa các mã quà tặng có trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewData["Title"]</h5>
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Code)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Code)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Money)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Money)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CreatedAt)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Chỉnh sửa</a> |
+                    <a asp-action="Index">Trở về danh sách</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

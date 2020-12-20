@@ -1,0 +1,52 @@
+﻿@model MobileGamePort.Models.GiftCode
+
+@{
+    ViewData["Title"] = "Tạo Mã Quà Tặng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-joy icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Mã Quà Tặng
+                    <div class="page-title-subheading">
+                        Thêm mới, chỉnh sửa, xóa các mã quà tặng có trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewData["Title"]</h5>
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Code" class="control-label"></label>
+                        <input asp-for="Code" class="form-control" />
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Money" class="control-label"></label>
+                        <input asp-for="Money" class="form-control" />
+                        <span asp-validation-for="Money" class="text-danger"></span>
+                    </div>
+                    <div class="position-relative form-group">
+                        <input type="submit" value="Tạo" class="mt-1 btn btn-primary" />
+                    </div>
+                </form>
+                <div>
+                    <a asp-action="Index">Trở về danh sách</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

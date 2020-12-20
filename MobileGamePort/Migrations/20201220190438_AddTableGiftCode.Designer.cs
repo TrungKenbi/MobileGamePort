@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MobileGamePort.Data;
 
 namespace MobileGamePort.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201220190438_AddTableGiftCode")]
+    partial class AddTableGiftCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,17 +143,9 @@ namespace MobileGamePort.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("Downloads");
-
                     b.Property<string>("Image");
 
-                    b.Property<string>("LinkAndroid");
-
-                    b.Property<string>("LinkIOS");
-
                     b.Property<string>("Name");
-
-                    b.Property<int>("Views");
 
                     b.HasKey("Id");
 
@@ -173,17 +167,6 @@ namespace MobileGamePort.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GiftCode");
-                });
-
-            modelBuilder.Entity("MobileGamePort.Models.GiftCodeUse", b =>
-                {
-                    b.Property<int>("GiftCodeId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("GiftCodeId", "UserId");
-
-                    b.ToTable("GiftCodeUse");
                 });
 
             modelBuilder.Entity("MobileGamePort.Models.News", b =>

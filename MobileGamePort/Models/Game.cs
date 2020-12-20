@@ -16,5 +16,13 @@ namespace MobileGamePort.Models
         public string Description { get; set; }
         [Display(Name = "Hình ảnh")]
         public string Image { get; set; }
+        [Display(Name = "Link tải Android")]
+        public string LinkAndroid { get; set; }
+        [Display(Name = "Link tải iOS")]
+        public string LinkIOS { get; set; }
+        [Display(Name = "Lượt xem")]
+        public int Views { get; set; }
+        [Display(Name = "Lượt tải")]
+        public int Downloads { get; set; }
     }
 }

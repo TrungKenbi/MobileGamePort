@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MobileGamePort.Models.GiftCode>
+
+@{
+    ViewData["Title"] = "Danh sách Mã Quà Tặng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-joy icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Mã Quà Tặng
+                    <div class="page-title-subheading">
+                        Thêm mới, chỉnh sửa, xóa các mã quà tặng có trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewData["Title"]</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Code)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Money)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedAt)
+                                </th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Code)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Money)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id">
+                                            <button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id">
+                                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id">
+                                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

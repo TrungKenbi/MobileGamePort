@@ -1,0 +1,46 @@
+﻿@{
+    // ViewData["ShowProfile"] = "False";
+    ViewData["Title"] = "Nạp Tiền";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col mb-2">
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                <li class="breadcrumb-item"><a href="/Account">Trang cá nhân</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sử dụng Mã Quà Tặng</li>
+            </ol>
+        </nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">
+                    <i class="fa fa-list" aria-hidden="true"></i> Mã Quà Tặng
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            @* Nhập mã quà tặng *@
+            <div class="tab-pane active border border-top-0 p-3" role="tabpanel" id="tab-1">
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert alert-@ViewBag.MessageType">@ViewBag.Message</div>
+                }
+                <form asp-action="EnterCode">
+                    <div class="form-group">
+                        <label for="username">Tài khoản</label>
+                        <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Mã quà tặng</label>
+                        <input type="text" class="form-control" placeholder="Mã quà tặng" name="Code">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sử Dụng</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

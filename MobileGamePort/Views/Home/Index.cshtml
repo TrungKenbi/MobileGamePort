@@ -1,4 +1,5 @@
-﻿@{
+﻿@model dynamic
+@{
     ViewData["Title"] = "2SGame";
 }
 
@@ -120,56 +121,60 @@
     <section class="topgame pr">
         <h2 class="title">Top game</h2>
         <div class="topgame_list">
-            <div class="item">
-                <a href="https://nghichthien.vn/download" class="game_img" title="Nghịch Thiên Với Ta"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/images/package_images/Portal-new-HCM/Sg285/1603793146200x200.png" alt="Nghịch Thiên Với Ta" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://nghichthien.vn/download">Nghịch Thiên Với Ta</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 170.099 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://nghichmenhsu.vn/download" class="game_img" title="Nghịch Mệnh Sư"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/images/package_images/SG217/1600916460200x200.png" alt="Nghịch Mệnh Sư" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://nghichmenhsu.vn/download">Nghịch Mệnh Sư</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 475.783 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://gianghosinhtulenh.vn/download" class="game_img" title="Giang Hồ Sinh Tử Lệnh"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/SG290/1599188488200x200.png" alt="Giang Hồ Sinh Tử Lệnh" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://gianghosinhtulenh.vn/download">Giang Hồ Sinh Tử Lệnh</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 400.104 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://tantruongsinhquyet.vn/rd/taigame-landing" class="game_img" title="Tân Trường Sinh Quyết"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/NewHCMPor-giam/Sg272/1598413526200x200.png" alt="Tân Trường Sinh Quyết" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://tantruongsinhquyet.vn/rd/taigame-landing">Tân Trường Sinh Quyết</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 549.734 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://daihiepkhach.vn/download" class="game_img" title="Đại Hiệp Khách"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/SG283/1598523876200x200.png" alt="Đại Hiệp Khách" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://daihiepkhach.vn/download">Đại Hiệp Khách</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 386.172 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://anhkiem3d.vn/download" class="game_img" title="Ảnh Kiếm 3D"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/images/package_images/Portal-HN/1596514031268x200x200.png" alt="Ảnh Kiếm 3D" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://anhkiem3d.vn/download">Ảnh Kiếm 3D</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 487.795 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://thucson.vn/download" class="game_img" title="Thục Sơn Kỳ Hiệp Mobile"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/Portal-new-HCM/1590546853200x200220.png" alt="Thục Sơn Kỳ Hiệp Mobile" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://thucson.vn/download">Thục Sơn Kỳ Hiệp Mobile</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 3.015.875 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://langla.vn/download" class="game_img" title="Làng Lá Phiêu Lưu Ký"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/Portal-new-HCM/1591069801200x200188.png" alt="Làng Lá Phiêu Lưu Ký" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://langla.vn/download">Làng Lá Phiêu Lưu Ký</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 2.906.846 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="" class="game_img" title="3Q Bá Vương"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/CuongCa/1590139364200x200.png" alt="3Q Bá Vương" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="">3Q Bá Vương</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 507.636 người chơi</span>
-            </div>
-            <div class="item">
-                <a href="https://mongaotutien.vn/download" class="game_img" title="Mộng Ảo Tu Tiên"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/CuongCa/1593059325icon_200_x_200.png" alt="Mộng Ảo Tu Tiên" data-level="2" class="lazyload" srcset=""></a>
-                <h3 class="game_name"><a href="https://mongaotutien.vn/download">Mộng Ảo Tu Tiên</a></h3>
-                <span class="number_play flex_center"><i class="icon icon-user"></i> 541.943 người chơi</span>
-            </div>
+            @foreach (var item in Model.Games)
+            {
+                <div class="item">
+                    <a href="/Home/Game/@item.Id" class="game_img" title="@item.Name"><img src="@item.Image" alt="@item.Image" data-level="2" class="lazyload" srcset=""></a>
+                    <h3 class="game_name"><a href="/Home/Game/@item.Id">@item.Name</a></h3>
+                    <span class="number_play flex_center"><i class="icon icon-user"></i> 170.099 lượt tải</span>
+                </div>
+            }
+            <!--
+    <div class="item">
+        <a href="https://nghichmenhsu.vn/download" class="game_img" title="Nghịch Mệnh Sư"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/images/package_images/SG217/1600916460200x200.png" alt="Nghịch Mệnh Sư" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://nghichmenhsu.vn/download">Nghịch Mệnh Sư</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 475.783 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://gianghosinhtulenh.vn/download" class="game_img" title="Giang Hồ Sinh Tử Lệnh"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/SG290/1599188488200x200.png" alt="Giang Hồ Sinh Tử Lệnh" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://gianghosinhtulenh.vn/download">Giang Hồ Sinh Tử Lệnh</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 400.104 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://tantruongsinhquyet.vn/rd/taigame-landing" class="game_img" title="Tân Trường Sinh Quyết"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/NewHCMPor-giam/Sg272/1598413526200x200.png" alt="Tân Trường Sinh Quyết" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://tantruongsinhquyet.vn/rd/taigame-landing">Tân Trường Sinh Quyết</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 549.734 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://daihiepkhach.vn/download" class="game_img" title="Đại Hiệp Khách"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/SG283/1598523876200x200.png" alt="Đại Hiệp Khách" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://daihiepkhach.vn/download">Đại Hiệp Khách</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 386.172 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://anhkiem3d.vn/download" class="game_img" title="Ảnh Kiếm 3D"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/images/package_images/Portal-HN/1596514031268x200x200.png" alt="Ảnh Kiếm 3D" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://anhkiem3d.vn/download">Ảnh Kiếm 3D</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 487.795 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://thucson.vn/download" class="game_img" title="Thục Sơn Kỳ Hiệp Mobile"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/Portal-new-HCM/1590546853200x200220.png" alt="Thục Sơn Kỳ Hiệp Mobile" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://thucson.vn/download">Thục Sơn Kỳ Hiệp Mobile</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 3.015.875 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://langla.vn/download" class="game_img" title="Làng Lá Phiêu Lưu Ký"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/Portal-new-HCM/1591069801200x200188.png" alt="Làng Lá Phiêu Lưu Ký" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://langla.vn/download">Làng Lá Phiêu Lưu Ký</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 2.906.846 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="" class="game_img" title="3Q Bá Vương"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/CuongCa/1590139364200x200.png" alt="3Q Bá Vương" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="">3Q Bá Vương</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 507.636 người chơi</span>
+    </div>
+    <div class="item">
+        <a href="https://mongaotutien.vn/download" class="game_img" title="Mộng Ảo Tu Tiên"><img src="https://sohagame.mediacdn.vn/thumb_w/50/shgdeveloper/CuongCa/1593059325icon_200_x_200.png" alt="Mộng Ảo Tu Tiên" data-level="2" class="lazyload" srcset=""></a>
+        <h3 class="game_name"><a href="https://mongaotutien.vn/download">Mộng Ảo Tu Tiên</a></h3>
+        <span class="number_play flex_center"><i class="icon icon-user"></i> 541.943 người chơi</span>
+    </div>-->
         </div>
     </section>
     <section class="newgame">
@@ -296,39 +301,22 @@
         </ul>
         <div class="newsgame_content">
             <div class="post_list flex">
-                <article class="post">
-                    <a href="https://sohagame.vn/tin-tuc/thong-bao-don-vi-tich-diem-moi-cho-cac-san-pham-tu-sohagame-26196.html" class="img-news"><img src="https://sohagame.mediacdn.vn/thumb_w/20/public/sohagame/tichdiemshg.png" alt="[Thông Báo] Đơn vị tích điểm mới cho các sản phẩm từ SohaGame" data-w="350" data-level="7" class="lazyload" srcset="" /></a>
-                    <h3><a href="https://sohagame.vn/tin-tuc/thong-bao-don-vi-tich-diem-moi-cho-cac-san-pham-tu-sohagame-26196.html" title="[Thông Báo] Đơn vị tích điểm mới cho các sản phẩm từ SohaGame">[Thông Báo] Đơn vị tích điểm mới cho các sản phẩm từ SohaGame</a></h3>
-                    <span class="line"></span><time>28.10.2020</time>
-                </article>
-                <article class="post">
-                    <a href="https://sohagame.vn/tin-tuc/hot-nap-sohacoin-tang-them-4-hoan-tien-50k-khi-thanh-toan-qua-vi-vtc-pay-26194.html" class="img-news"><img src="https://sohagame.mediacdn.vn/thumb_w/20/public/sohagame/vtc1.png" alt="[HOT] NẠP SOHACOIN: TẶNG THÊM 4%, HOÀN TIỀN 50K KHI THANH TOÁN QUA VÍ VTC PAY" data-w="350" data-level="7" class="lazyload" srcset="" /></a>
-                    <h3><a href="https://sohagame.vn/tin-tuc/hot-nap-sohacoin-tang-them-4-hoan-tien-50k-khi-thanh-toan-qua-vi-vtc-pay-26194.html" title="[HOT] NẠP SOHACOIN: TẶNG THÊM 4%, HOÀN TIỀN 50K KHI THANH TOÁN QUA VÍ VTC PAY">[HOT] NẠP SOHACOIN: TẶNG THÊM 4%, HOÀN TIỀN 50K KHI THANH TOÁN QUA VÍ VTC PAY</a></h3>
-                    <span class="line"></span><time>01.10.2020</time>
-                </article>
-                <article class="post">
-                    <a href="https://sohagame.vn/tin-tuc/giai-tri-co-hoi-lap-doi-chien-game-voi-combo-voucher-120k-26192.html" class="img-news"><img src="https://sohagame.mediacdn.vn/thumb_w/20/public/sohagame/seki-soha-1.jpg" alt="GIẢI TRÍ CÓ HỘI- LẬP ĐỘI CHIẾN GAME VỚI COMBO VOUCHER 120K " data-w="350" data-level="7" class="lazyload" srcset="" /></a>
-                    <h3><a href="https://sohagame.vn/tin-tuc/giai-tri-co-hoi-lap-doi-chien-game-voi-combo-voucher-120k-26192.html" title="GIẢI TRÍ CÓ HỘI- LẬP ĐỘI CHIẾN GAME VỚI COMBO VOUCHER 120K ">GIẢI TRÍ CÓ HỘI- LẬP ĐỘI CHIẾN GAME VỚI COMBO VOUCHER 120K </a></h3>
-                    <span class="line"></span><time>29.06.2020</time>
-                </article>
-                <article class="post">
-                    <a href="https://sohagame.vn/tin-tuc/sohagame-thay-doi-chinh-sach-dich-vu-ke-tu-01-06-2020-26190.html" class="img-news"><img src="https://sohagame.mediacdn.vn/thumb_w/20/public/sohagame/aaaaa.jpg" alt="SohaGame thay đổi chính sách dịch vụ kể từ 01/06/2020" data-w="350" data-level="7" class="lazyload" srcset="" /></a>
-                    <h3><a href="https://sohagame.vn/tin-tuc/sohagame-thay-doi-chinh-sach-dich-vu-ke-tu-01-06-2020-26190.html" title="SohaGame thay đổi chính sách dịch vụ kể từ 01/06/2020">SohaGame thay đổi chính sách dịch vụ kể từ 01/06/2020</a></h3>
-                    <span class="line"></span><time>02.06.2020</time>
-                </article>
-                <article class="post">
-                    <a href="https://sohagame.vn/tin-tuc/thuc-son-ky-hiep-mobile-dac-quyen-qua-tri-an-vip-26164.html" class="img-news"><img src="https://sohagame.mediacdn.vn/thumb_w/20/public/sg220/quatrianvip.jpg" alt="[Thục Sơn Kỳ Hiệp Mobile] Đặc Quyền - Quà Tri Ân VIP" data-w="350" data-level="7" class="lazyload" srcset="" /></a>
-                    <h3><a href="https://sohagame.vn/tin-tuc/thuc-son-ky-hiep-mobile-dac-quyen-qua-tri-an-vip-26164.html" title="[Thục Sơn Kỳ Hiệp Mobile] Đặc Quyền - Quà Tri Ân VIP">[Thục Sơn Kỳ Hiệp Mobile] Đặc Quyền - Quà Tri Ân VIP</a></h3>
-                    <span class="line"></span><time>11.05.2020</time>
-                </article>
+                @foreach (var item in Model.News)
+                {
+                    <article class="post">
+                        <a href="/Home/News/@item.Id" class="img-news"><img src="@item.Thumbnail" alt="@item.Title" data-w="350" data-level="7" class="lazyload" srcset="" /></a>
+                        <h3><a href="/Home/News/@item.Id" title="@item.Title">@item.Title</a></h3>
+                        <span class="line"></span><time>@String.Format("{0:dd.MM.yyyy}", item.CreatedAt)</time>
+                    </article>
+                }
             </div>
-            <a href="https://sohagame.vn/tin-tuc" title="Xem thêm" class="btn_viewmore flex_center"><span>Xem thêm</span></a>
+            <a href="#" title="Xem thêm" class="btn_viewmore flex_center"><span>Xem thêm</span></a>
         </div>
         <div class="newsgame_content">
             <div class="post_list flex">
                 <div style="text-align: center; width: 100%">Đang cập nhật...</div>
             </div>
-            <a href="https://sohagame.vn/su-kien" title="Xem thêm" class="btn_viewmore flex_center"><span>Xem thêm</span></a>
+            <a href="#" title="Xem thêm" class="btn_viewmore flex_center"><span>Xem thêm</span></a>
         </div>
     </section>
 </main>

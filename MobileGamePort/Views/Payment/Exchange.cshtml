@@ -1,0 +1,72 @@
+﻿@{
+    // ViewData["ShowProfile"] = "False";
+    ViewData["Title"] = "Nạp Vào Trò Chơi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col mb-2">
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                <li class="breadcrumb-item"><a href="/Account">Trang cá nhân</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Nạp Vào Trò Chơi</li>
+            </ol>
+        </nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">
+                    <i class="fa fa-list" aria-hidden="true"></i> Nạp Vào Trò Chơi
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            @* Nhập mã quà tặng *@
+            <div class="tab-pane active border border-top-0 p-3" role="tabpanel" id="tab-1">
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert alert-@ViewBag.MessageType">@ViewBag.Message</div>
+                }
+                <form asp-action="Exchange">
+                    <div class="form-group">
+                        <label for="username">Tài khoản</label>
+                        <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="Game">Trò Chơi</label>
+                        <select class="form-control" name="Game">
+                            <option value="MOBIARMY">MobiArmy</option>
+                            <option value="LONGTINH">Long Tinh</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="amount">Số Lượng <i class="fad fa-coins fa-lg theme-ravenclaw" aria-hidden="true"></i></label>
+                            <input type="number" class="form-control" placeholder="Số Lượng Bạn Muốn Chuyển" name="Amount" id="amount" value="1" min="1" max="10000">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="amount_game">Tiền Nhận Được Trong Game</label>
+                            <input type="number" class="form-control" placeholder="Số Lượng Bạn Muốn Chuyển" id="amount_game" value="0" readonly>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Chuyển Đổi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#amount').on('input', function (e) {
+                let amount = $('#amount').val();
+                if (amount < 0)
+                    amount = 0;
+                $('#amount_game').val(amount * 100);
+            })
+        });
+    </script>
+}
+

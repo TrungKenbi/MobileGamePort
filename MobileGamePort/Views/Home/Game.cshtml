@@ -1,0 +1,45 @@
+﻿@model MobileGamePort.Models.Game
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<main>
+    <div class="shg_title">
+        <h1 class="title">Trò Chơi</h1>
+    </div>
+    <div class="news pr">
+        <div class="news_detail container">
+            <h2 class="page_title">@Model.Name</h2>
+            <a href="javascript:history.back()" class="btn_back">Quay lại</a>
+            <article class="detail">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p style="font-style:italic">Lượt tải: @Model.Downloads</p>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3 text-right>
+                        <p style="font-style:italic">Lượt xem: @Model.Views</p>
+                    </div>
+                    
+                </div>
+                <p style="text-align:center">
+                    <img alt="" src="@Model.Image" style="height:200px; width:200px" />
+                </p>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
+                        <a href="@Model.LinkAndroid"><button class="btn btn-lg btn-default">Tải về Android</button></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="@Model.LinkIOS"><button class="btn btn-lg btn-default">Tải về iOS</button></a>
+                    </div>
+                </div><br /><br />
+                @Html.Raw(@Model.Description)
+            </article>
+        </div>
+    </div>
+</main>

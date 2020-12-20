@@ -15,6 +15,8 @@ namespace MobileGamePort.Data
         public DbSet<Recharge> Recharges { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<ScratchCard> ScratchCards { get; set; }
+        public DbSet<GiftCode> GiftCode { get; set; }
+        public DbSet<GiftCodeUse> GiftCodeUse { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -40,6 +42,10 @@ namespace MobileGamePort.Data
 
             modelBuilder.Entity<Recharge>()
             .HasOne(p => p.User);
+
+            modelBuilder.Entity<GiftCodeUse>()
+                .HasKey(c => new { c.GiftCodeId, c.UserId });
         }
+        
     }
 }

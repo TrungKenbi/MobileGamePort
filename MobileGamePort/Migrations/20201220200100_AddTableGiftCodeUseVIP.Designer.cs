@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MobileGamePort.Data;
 
 namespace MobileGamePort.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201220200100_AddTableGiftCodeUseVIP")]
+    partial class AddTableGiftCodeUseVIP
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,17 +177,6 @@ namespace MobileGamePort.Migrations
                     b.ToTable("GiftCode");
                 });
 
-            modelBuilder.Entity("MobileGamePort.Models.GiftCodeUse", b =>
-                {
-                    b.Property<int>("GiftCodeId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("GiftCodeId", "UserId");
-
-                    b.ToTable("GiftCodeUse");
-                });
-
             modelBuilder.Entity("MobileGamePort.Models.News", b =>
                 {
                     b.Property<int>("Id")
@@ -260,7 +251,7 @@ namespace MobileGamePort.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ScratchCards");
+                    b.ToTable("ScratchCard");
                 });
 
             modelBuilder.Entity("MobileGamePort.Models.Setting", b =>

@@ -17,4 +17,12 @@
     - Đăng Ký
     - Đăng Xuất
     - Quản Lý Các Trò Chơi
+  - `19/12/2020`
+    - Thêm giao diện quản trị
+    - Chỉnh sửa nhỏ một số chức năng
+  - `20/12/2020`
+    - Quản lý
+    - Kết nối tới các trò chơi
+	- Tích hợp thanh toán
+
 

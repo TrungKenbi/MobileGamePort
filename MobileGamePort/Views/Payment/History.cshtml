@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MobileGamePort.Models.Recharge>
+
+@{
+    ViewData["Title"] = "Lịch Sử Giao Dịch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col mb-2">
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                <li class="breadcrumb-item"><a href="/Account">Trang Cá Nhân</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Lịch Sử Giao Dịch</li>
+            </ol>
+        </nav>
+
+        <div class="row justify-content-center">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>
+                            Mã GD
+                        </th>
+                        <th>
+                            Số tiền
+                        </th>
+                        <th>
+                            Loại
+                        </th>
+                        <th>
+                            Lượng nhận được
+                        </th>
+                        <th>
+                            Ngày nạp
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <b>GD10000​​@Html.DisplayFor(modelItem => item.Id)</b>
+                            </td>
+                            <td class="text-right">
+                                <b>@Html.DisplayFor(modelItem => item.Amount)</b> vnđ
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type)
+                            </td>
+                            <td class="text-right">
+                                <b>@Html.DisplayFor(modelItem => item.Money)</b> lượng
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

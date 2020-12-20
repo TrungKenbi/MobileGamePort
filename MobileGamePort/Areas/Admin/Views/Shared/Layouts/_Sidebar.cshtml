@@ -34,31 +34,16 @@
                 <!-- Bảng điều khiển -->
                 <li class="app-sidebar__heading">Bảng Điều Khiển</li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a asp-controller="Home" asp-action="Index" class="mm-active">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Trang chính
-                    </a>
-                </li>
-
-                <!-- Báo cáo -->
-                <li class="app-sidebar__heading">Báo Cáo</li>
-                <li>
-                    <a href="dashboard-boxes.html">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Doanh thu tháng
-                    </a>
-                </li>
-                <li>
-                    <a href="dashboard-boxes.html">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Chi tiết game
                     </a>
                 </li>
 
                 <!-- Quản lý nạp tiền -->
                 <li class="app-sidebar__heading">Quản Lý Nạp Tiền</li>
                 <li>
-                    <a href="dashboard-boxes.html">
+                    <a asp-controller="Payment" asp-action="History">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Lịch sử giao dịch
                     </a>
@@ -82,15 +67,39 @@
                 <!-- Quản lý tin tức -->
                 <li class="app-sidebar__heading">Quản Lý Tin Tức</li>
                 <li>
-                    <a href="forms-controls.html">
+                    <a asp-controller="News" asp-action="Create">
                         <i class="metismenu-icon pe-7s-mouse">
                         </i>Thêm tin mới
                     </a>
                 </li>
                 <li>
-                    <a href="forms-layouts.html">
+                    <a asp-controller="News" asp-action="Index">
                         <i class="metismenu-icon pe-7s-eyedropper">
                         </i>Danh sách tin tức
+                    </a>
+                </li>
+
+                <!-- Quản lý tập tin -->
+                <li class="app-sidebar__heading">Quản Lý Tập Tin</li>
+                <li>
+                    <a asp-controller="Home" asp-action="FileManager">
+                        <i class="metismenu-icon pe-7s-mouse">
+                        </i>Thư mục gốc
+                    </a>
+                </li>
+
+                <!-- Báo cáo -->
+                <li class="app-sidebar__heading">Báo Cáo</li>
+                <li>
+                    <a href="dashboard-boxes.html">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Doanh thu tháng
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard-boxes.html">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Chi tiết game
                     </a>
                 </li>
             </ul>

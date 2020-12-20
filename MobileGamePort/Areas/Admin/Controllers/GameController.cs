@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MobileGamePort.Controllers;
 using MobileGamePort.Data;
 using MobileGamePort.Models;
 using X.PagedList;
@@ -14,11 +16,11 @@ namespace MobileGamePort.Areas.Admin.Controllers
 {
     [Authorize]
     [Area("Admin")]
-    public class GameController : Controller
+    public class GameController : BaseController
     {
         private readonly ApplicationDbContext _context;
 
-        public GameController(ApplicationDbContext context)
+        public GameController(ApplicationDbContext context, UserManager<User> userManager) : base(userManager)
         {
             _context = context;
         }
@@ -26,9 +28,7 @@ namespace MobileGamePort.Areas.Admin.Controllers
         // GET: Game
         public async Task<IActionResult> Index(int? page)
         {
-            if (page == null) page = 1;
-            var links = (from l in _context.Games
-                         select l).OrderBy(x => x.Id);
+            var links = (from items in _context.Games select items).OrderBy(x => x.Id);
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);

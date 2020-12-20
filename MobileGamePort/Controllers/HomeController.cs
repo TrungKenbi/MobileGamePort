@@ -39,5 +39,10 @@ namespace MobileGamePort.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult FileManager()
+        {
+            return View();
+        }
     }
 }

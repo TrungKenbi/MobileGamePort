@@ -1,7 +1,7 @@
 ﻿
 @{
     // ViewData["ShowProfile"] = "False";
-    ViewData["Title"] = "Nạp Tiền Nè Mấy Bạn";
+    ViewData["Title"] = "Nạp Tiền";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -33,35 +33,56 @@
             </li>
             
         </ul>
-        @* Nạp tiền bằng thẻ cào *@
+        
         <div class="tab-content">
+            @* Nạp tiền bằng thẻ cào *@
             <div class="tab-pane active border border-top-0 p-3" role="tabpanel" id="tab-1">
-                <form method="post">
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert alert-success">@ViewBag.Message</div>
+                }
+                <form asp-action="ScratchCard">
                     <div class="form-group">
                         <label for="username">Tài khoản</label>
                         <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
                     </div>
 
                     <div class="form-group">
+                        <label for="amount">Nhà mạng</label>
+                        <select class="form-control" name="Telco">
+                            <option value="VIETTEL">Viettel</option>
+                            <option value="VINAPHONE">Vinaphone</option>
+                            <option value="MOBIFONE">Mobifone</option>
+                            <option value="ZING">Zing</option>
+                            <option value="GATE">Gate</option>
+                            <option value="VTC">Vcoin</option>
+                            <option value="VIETNAMOBILE">Vietnamobile</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="amount">Mệnh giá</label>
-                        <select class="form-control" id="amount">
-                            <option>10.000đ</option>
-                            <option>20.000đ</option>
-                            <option>50.000đ</option>
-                            <option>100.000đ</option>
-                            <option>200.000đ</option>
-                            <option>500.000đ</option>
+                        <select class="form-control" name="Amount">
+                            <option value="1000000">1,000,000 đ</option>
+                            <option value="500000">500,000 đ</option>
+                            <option value="300000">300,000 đ</option>
+                            <option value="200000">200,000 đ</option>
+                            <option value="100000">100,000 đ</option>
+                            <option value="50000">50,000 đ</option>
+                            <option value="30000">30,000 đ</option>
+                            <option value="20000">20,000 đ</option>
+                            <option value="10000">10,000 đ</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="username">Mã thẻ</label>
-                        <input type="text" class="form-control" placeholder="Mã thẻ cào">
+                        <input type="text" class="form-control" placeholder="Mã thẻ cào" name="Code">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Số Seri</label>
-                        <input type="text" class="form-control" placeholder="Số seri thẻ cào">
+                        <input type="text" class="form-control" placeholder="Số seri thẻ cào" name="Serial">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Nạp Tiền</button>
@@ -70,7 +91,7 @@
 
             @* Nạp tiền qua MoMo *@
             <div class="tab-pane border border-top-0 p-3" role="tabpanel" id="tab-2">
-                <form method="post">
+                <form asp-action="MoMo">
                     <div class="form-group">
                         <label for="username">Tài khoản</label>
                         <input type="text" class="form-control" placeholder="Tài khoản" value="@User.Identity.Name" readonly>
@@ -78,15 +99,15 @@
 
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input type="number" class="form-control" placeholder="Số tiền">
+                        <input type="number" class="form-control" placeholder="Số tiền" name="Amount">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Nạp Tiền</button>
                 </form>
             </div>
 
-        
-        @* Nạp tiền qua ngân hàng *@
+
+            @* Nạp tiền qua ngân hàng *@
 
             <div class="tab-pane border border-top-0 p-3" role="tabpanel" id="tab-3">
                 <form method="post">

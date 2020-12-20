@@ -1,21 +1,30 @@
 ﻿@model MobileGamePort.Models.Game
 
 @{
-    ViewData["Title"] = "Sửa Trò Chơi";
+    ViewData["Title"] = "Xóa Trò Chơi";
 }
 
-<div class="col mb-2">
-    <div>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">
-                    <i class="fa fa-list" aria-hidden="true"></i> @ViewData["Title"]
-                </a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <!-- Tab 1 thông tin tài khoản -->
-            <div class="tab-pane active border border-top-0 p-3" role="tabpanel" id="tab-1">
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-joy icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Trò Chơi
+                    <div class="page-title-subheading">
+                        Thêm mới, chỉnh sửa, xóa các trò chơi có trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewData["Title"]</h5>
                 <div>
                     <h3>Bạn có chắc chắn muốn xóa trò chơi này không ?</h3>
                     <dl class="dl-horizontal">
@@ -46,7 +55,6 @@
                         <a asp-action="Index">Danh sách trò chơi</a>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

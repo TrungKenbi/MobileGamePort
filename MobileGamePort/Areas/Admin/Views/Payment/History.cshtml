@@ -1,0 +1,97 @@
+﻿@model X.PagedList.IPagedList<MobileGamePort.Models.Recharge>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Common;
+
+@{
+    ViewData["Title"] = "Lịch Sử Giao Dịch";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-joy icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Nạp Tiền
+                    <div class="page-title-subheading">
+                        Lịch sử giao dịch của người chơi trên trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewData["Title"]</h5>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Mã GD
+                                </th>
+                                <th>
+                                    Thành viên
+                                </th>
+                                <th>
+                                    Số tiền
+                                </th>
+                                <th>
+                                    Loại
+                                </th>
+                                <th>
+                                    Lượng nhận được
+                                </th>
+                                <th>
+                                    Ngày nạp
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    <b>GD10000​​@Html.DisplayFor(modelItem => item.Id)</b>
+                                </td>
+                                <td>
+                                    <b>@Html.DisplayFor(modelItem => item.User.UserName)</b>
+                                </td>
+                                <td class="text-right">
+                                    <b>@Html.DisplayFor(modelItem => item.Amount)</b> vnđ
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td class="text-right">
+                                    <b>@Html.DisplayFor(modelItem => item.Money)</b> lượng
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @if (@Model.PageCount > 1)
+                    {
+                        <br />
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+                            {
+                               LiElementClasses = new string[] { "page-item" },
+                               PageClasses = new string[] { "page-link" }
+                            }
+                        )
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

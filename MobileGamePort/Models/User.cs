@@ -11,11 +11,14 @@ namespace MobileGamePort.Models
     public class User : IdentityUser
     {
         // Họ và Tên
+        [PersonalData]
         public string Fullname { get; set; }
         // Xu
+        [PersonalData]
         [DefaultValue(0)]
         public int Coin { get; set; }
         // Lượng
+        [PersonalData]
         [DefaultValue(0)]
         public int Gold { get; set; }
 

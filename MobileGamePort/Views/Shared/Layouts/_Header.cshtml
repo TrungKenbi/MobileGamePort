@@ -1,32 +1,32 @@
-﻿<a class="navbar-brand navbar-brand-centered" href="/"><img src="~/images/2sgame.png" width="140"></a>
+﻿@{
+    string controllerName = this.ViewContext.RouteData.Values["controller"] != null ? this.ViewContext.RouteData.Values["controller"].ToString() : "";
+}
+<a class="navbar-brand navbar-brand-centered" href="/">
+    <img src="~/images/2sgame.png" width="140">
+</a>
 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
 
 <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="/">
+        <li class="nav-item @(controllerName == "Account" ? "active" : "")">
+            <a class="nav-link" asp-area="default" asp-controller="Account" asp-action="Index">
                 <i class="fa fa-home"></i>
-                Trang chủ
+                Trang cá nhân
                 <span class="sr-only">(current)</span>
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item @(controllerName == "Payment" ? "active" : "")">
+            <a class="nav-link" asp-area="default" asp-controller="Payment" asp-action="Index">
                 <i class="fa fa-credit-card">
                     <span class="badge badge-warning">KM</span>
                 </i>
                 Nạp tiền
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/Account/Payment">Nạp Ví Momo</a>
-                <a class="dropdown-item" href="/Account/Payment">Nạp Ngân Hàng</a>
-                <a class="dropdown-item" href="/Account/Payment">Nạp Thẻ Cào</a>
-            </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/Account/Exchange">
+        <li class="nav-item @(controllerName == "Exchange" ? "active" : "")">
+            <a class="nav-link" asp-area="default" asp-controller="Exchange" asp-action="Index">
                 <i class="fa fa-lg fa-exchange-alt">
                 </i>
                 Nạp game
@@ -41,9 +41,7 @@
         </li>
     </ul>
 
-
     <ul class="navbar-nav ">
-
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-users">
@@ -51,10 +49,8 @@
                 Cộng đồng
             </a>
             <div class="dropdown-menu" aria-labelledby="accountDropdown">
-
                 <a target="_blank" href="https://www.facebook.com/TrungKenbiGame/" class="dropdown-item "><i class="fab fa-facebook fa-lg" aria-hidden="true"></i> Fanpage</a>
                 <a target="_blank" href="https://www.facebook.com/groups/MobiPow/" class="dropdown-item "><i class="fab fa-facebook fa-lg" aria-hidden="true"></i> Group</a>
-
             </div>
         </li>
 
@@ -65,12 +61,10 @@
                 Tính năng
             </a>
             <div class="dropdown-menu" aria-labelledby="accountDropdown">
-
-                <a href="/Account/Payment" class="dropdown-item "><i class="fad fa-wallet fa-lg" aria-hidden="true"></i> Nạp tiền</a>
-                <a href="/Account/Exchange" class="dropdown-item "><i class="fad fa-exchange-alt fa-lg" aria-hidden="true"></i> Nạp game</a>
-                <a href="/Account/PaymentLog" class="dropdown-item "><i class="fad fa-history fa-lg" aria-hidden="true"></i> Lịch sử nạp</a>
-                <a href="/Account/Webshop" class="dropdown-item "><i class="fad fa-store fa-lg" aria-hidden="true"></i> Cửa hàng</a>
-
+                <a asp-area="default" asp-controller="Payment" asp-action="Index" class="dropdown-item "><i class="fad fa-wallet fa-lg" aria-hidden="true"></i> Nạp tiền</a>
+                <a asp-area="default" asp-controller="Payment" asp-action="Exchange" class="dropdown-item "><i class="fad fa-exchange-alt fa-lg" aria-hidden="true"></i> Nạp game</a>
+                <a asp-area="default" asp-controller="Payment" asp-action="History" class="dropdown-item "><i class="fad fa-history fa-lg" aria-hidden="true"></i> Lịch sử nạp</a>
+                <a href="#" class="dropdown-item "><i class="fad fa-store fa-lg" aria-hidden="true"></i> Cửa hàng</a>
             </div>
         </li>
 

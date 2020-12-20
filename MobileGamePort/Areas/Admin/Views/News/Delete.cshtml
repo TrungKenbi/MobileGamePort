@@ -1,0 +1,67 @@
+﻿@model MobileGamePort.Models.News
+
+@{
+    ViewData["Title"] = "Xóa Tin Tức";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-news-paper icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Quản Lý Tin Tức
+                    <div class="page-title-subheading">
+                        Thêm mới, chỉnh sửa, xóa các tin tức có trên hệ thống
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewData["Title"]</h5>
+                <div>
+                    <h3>Bạn có chắc chắn muốn xóa trò chơi này không ?</h3>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Content)
+                        </dt>
+                        <dd>
+                            @Html.Raw(@Model.Content)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Thumbnail)
+                        </dt>
+                        <dd>
+                            <img src="@Model.Thumbnail" />
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CreatedAt)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+                        <a asp-action="Index">Trở về danh sách</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

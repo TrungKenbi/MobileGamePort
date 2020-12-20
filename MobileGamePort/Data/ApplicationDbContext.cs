@@ -13,6 +13,8 @@ namespace MobileGamePort.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Recharge> Recharges { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<ScratchCard> ScratchCards { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -28,7 +30,16 @@ namespace MobileGamePort.Data
                 {
                     entityType.Relational().TableName = table.Substring(6);
                 }
-            };
+            }
+
+            modelBuilder.Entity<News>()
+            .HasOne(p => p.Author);
+
+            modelBuilder.Entity<ScratchCard>()
+            .HasOne(p => p.User);
+
+            modelBuilder.Entity<Recharge>()
+            .HasOne(p => p.User);
         }
     }
 }

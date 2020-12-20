@@ -150,6 +150,29 @@ namespace MobileGamePort.Migrations
                     b.ToTable("Games");
                 });
 
+            modelBuilder.Entity("MobileGamePort.Models.News", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AuthorId");
+
+                    b.Property<string>("Content");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Thumbnail");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("News");
+                });
+
             modelBuilder.Entity("MobileGamePort.Models.Recharge", b =>
                 {
                     b.Property<int>("Id")
@@ -160,6 +183,8 @@ namespace MobileGamePort.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
+                    b.Property<int>("Money");
+
                     b.Property<string>("Type");
 
                     b.Property<string>("UserId");
@@ -169,6 +194,37 @@ namespace MobileGamePort.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Recharges");
+                });
+
+            modelBuilder.Entity("MobileGamePort.Models.ScratchCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Amount");
+
+                    b.Property<string>("Code");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("Money");
+
+                    b.Property<string>("RequestId");
+
+                    b.Property<string>("Serial");
+
+                    b.Property<int>("Status");
+
+                    b.Property<string>("Telco");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ScratchCards");
                 });
 
             modelBuilder.Entity("MobileGamePort.Models.Setting", b =>
@@ -285,10 +341,24 @@ namespace MobileGamePort.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("MobileGamePort.Models.News", b =>
+                {
+                    b.HasOne("MobileGamePort.Models.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId");
+                });
+
             modelBuilder.Entity("MobileGamePort.Models.Recharge", b =>
                 {
                     b.HasOne("MobileGamePort.Models.User", "User")
                         .WithMany("recharges")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("MobileGamePort.Models.ScratchCard", b =>
+                {
+                    b.HasOne("MobileGamePort.Models.User", "User")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

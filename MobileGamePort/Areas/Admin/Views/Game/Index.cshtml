@@ -44,7 +44,7 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <th scope="row">@(i++)</th>
+                                    <th scope="row">@( (i++) + Model.PageSize * (Model.PageNumber - 1) )</th>
                                     <td>
                                         <img src="@Html.DisplayFor(modelItem => item.Image)" height="50px" />
                                     </td>

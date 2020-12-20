@@ -12,11 +12,11 @@
             </li>
             <li class="list-group-item">
                 <i class="fad fa-coins fa-lg theme-ravenclaw" aria-hidden="true"></i>
-                Lượng: <b id="ggcoin">0</b> <a data-toggle="tooltip" data-html="true" data-placement="right" title="" data-original-title="Lượng dùng để đổi vàng trong game và mua vật phẩm ở webshop"><i class="text-muted fad fa-question-circle" aria-hidden="true"></i></a>
+                Lượng: <b id="ggcoin">@(ViewData["user"] != null ? (ViewData["user"] as User).Gold : 0)</b> <a data-toggle="tooltip" data-html="true" data-placement="right" title="" data-original-title="Lượng dùng để đổi vàng trong game và mua vật phẩm ở webshop"><i class="text-muted fad fa-question-circle" aria-hidden="true"></i></a>
             </li>
             <li class="list-group-item">
                 <i class="fad fa-sack-dollar fa-lg theme-ravenclaw" aria-hidden="true"></i>
-                Xu: <b id="ggcoin_lock">200</b> <a data-toggle="tooltip" data-html="true" data-placement="right" title="" data-original-title="Xu dùng để tham gia sự kiện và hoạt động tại trang chủ"><i class="text-muted fad fa-question-circle" aria-hidden="true"></i></a>
+                Xu: <b id="ggcoin_lock">@(ViewData["user"] != null ? (ViewData["user"] as User).Coin : 0)</b> <a data-toggle="tooltip" data-html="true" data-placement="right" title="" data-original-title="Xu dùng để tham gia sự kiện và hoạt động tại trang chủ"><i class="text-muted fad fa-question-circle" aria-hidden="true"></i></a>
             </li>
 
             <li class="list-group-item">
@@ -27,11 +27,21 @@
         </div>
         <ul class="list-group mb-2">
             <li class="list-group-item"><b><i class="fad fa-bars fa-lg" aria-hidden="true"> </i> Menu chức năng</b></li>
-            <a href="/user/payment" class="list-group-item list-group-item-action "><i class="fad fa-wallet fa-lg theme-ravenclaw" aria-hidden="true"></i> Nạp tiền <span class="badge badge-success">Lượng</span></a>
-            <a href="/user/exchange" class="list-group-item list-group-item-action "><i class="fad fa-exchange-alt fa-lg theme-ravenclaw" aria-hidden="true"></i> Nạp game <span class="badge badge-warning">KNB</span></a>
-            <a href="/user/webshop" class="list-group-item list-group-item-action "><i class="fad fa-store fa-lg theme-ravenclaw" aria-hidden="true"></i> Cửa hàng <span class="badge badge-danger">SALE</span></a>
-            <a href="/user/event" class="list-group-item list-group-item-action "><i class="fad fa-gift fa-lg theme-ravenclaw" aria-hidden="true"></i> Tích lũy nạp <span class="badge badge-danger">HOT</span></a>
-            <a href="/user/payment_log" class="list-group-item list-group-item-action "><i class="fad fa-history fa-lg theme-ravenclaw" aria-hidden="true"></i> Lịch sử nạp </a>
+            <a asp-area="default" asp-controller="Payment" asp-action="Index" class="list-group-item list-group-item-action ">
+                <i class="fad fa-wallet fa-lg theme-ravenclaw" aria-hidden="true"></i> Nạp tiền <span class="badge badge-success">Lượng</span>
+            </a>
+            <a asp-area="default" asp-controller="Payment" asp-action="Exchange" class="list-group-item list-group-item-action ">
+                <i class="fad fa-exchange-alt fa-lg theme-ravenclaw" aria-hidden="true"></i> Nạp game <span class="badge badge-warning">KNB</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action ">
+                <i class="fad fa-store fa-lg theme-ravenclaw" aria-hidden="true"></i> Cửa hàng <span class="badge badge-danger">SALE</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action ">
+                <i class="fad fa-gift fa-lg theme-ravenclaw" aria-hidden="true"></i> Tích lũy nạp <span class="badge badge-danger">HOT</span>
+            </a>
+            <a asp-area="default" asp-controller="Payment" asp-action="History" class="list-group-item list-group-item-action">
+                <i class="fad fa-history fa-lg theme-ravenclaw" aria-hidden="true"></i> Lịch sử nạp
+            </a>
         </ul>
     </div>
 </div>

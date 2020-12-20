@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MobileGamePort.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MobileGamePort.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using GleamTech.AspNet.Core;
+using GleamTech.FileUltimate;
 
 namespace MobileGamePort
 {
@@ -41,7 +37,8 @@ namespace MobileGamePort
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<User>(options => {
+            services.AddDefaultIdentity<User>(options =>
+            {
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 6;
                 options.Password.RequireLowercase = false;
@@ -63,7 +60,10 @@ namespace MobileGamePort
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            //Add GleamTech to the ASP.NET Core services container.
+            //----------------------
+            services.AddGleamTech();
+            //----------------------
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +80,15 @@ namespace MobileGamePort
                 app.UseHsts();
             }
 
+            //Register GleamTech to the ASP.NET Core HTTP request pipeline.
+            //----------------------
+            app.UseGleamTech();
+            //----------------------
+            //Set this property only if you have a valid license key, otherwise do not 
+            //set it so FileUltimate runs in trial mode.  
+            // FileUltimateConfiguration.Current.LicenseKey = "QQJDJLJP34asdjnsakjndakjs";
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
@@ -95,9 +104,9 @@ namespace MobileGamePort
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                );
             });
-
         }
     }
 }

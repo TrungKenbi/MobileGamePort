@@ -1,0 +1,48 @@
+﻿@using GleamTech.AspNet.Core
+@using GleamTech.FileUltimate.AspNet.UI
+@model FileManager
+
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Chọn tập tin</title>
+    @this.RenderHead(Model)
+    <script>
+        function fileManagerChosen(sender, e) {
+            var json = JSON.stringify(e, null, 2);
+            console.log(json);
+            var funcNum = getUrlParam('CKEditorFuncNum');
+
+            if (!e.IsCanceled) {
+                var filesRoot = "/filemanager/";
+                var fullPath = e.items[0].fullPath;
+                var delimiterIndex = fullPath.indexOf("]:");
+                var rootName = fullPath.substr(1, delimiterIndex - 1);
+                var remaining = fullPath.substr(delimiterIndex + 2).replace(/\\/g, '/');
+
+                var fileUrl = filesRoot + (rootName + remaining).toLowerCase();
+
+                window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
+            }
+
+            window.close();
+        }
+
+        // Helper function to get parameters from the query string.
+        function getUrlParam(paramName) {
+            var reParam = new RegExp('(?:[\?&]|&)' + paramName + '=([^&]+)', 'i');
+            var match = window.location.search.match(reParam);
+
+            return (match && match.length > 1) ? match[1] : null;
+        }
+
+    </script>
+</head>
+<body style="margin: 20px;">
+    @this.RenderBody(Model)
+</body>
+</html>
